@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:salary_calculator/gross.dart';
+import 'package:salary_calculator/overtime.dart';
+import 'package:salary_calculator/screen/net.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key});
 
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+int index = 0;
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,22 +67,30 @@ class Body extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CircleAvatar(
-                                radius: 50,
-                                backgroundColor: Colors.red,
+                                radius: 55,
+                                backgroundColor: Color.fromARGB(
+                                  65,
+                                  76,
+                                  175,
+                                  79,
+                                ),
                               ),
                               SizedBox(height: 10),
                               Text(
                                 "Net Salary",
                                 style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "1200052",
-                                style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
+                                  color: Color(0xFF003049),
+                                ),
+                              ),
+                              Divider(endIndent: 40.0, indent: 40.0),
+                              Text(
+                                "0.00",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF003049),
                                 ),
                               ),
                             ],
@@ -101,7 +118,11 @@ class Body extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            index = 0;
+                          });
+                        },
                         child: const Text(
                           'Net Salary',
                           style: TextStyle(
@@ -111,7 +132,11 @@ class Body extends StatelessWidget {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            index = 1;
+                          });
+                        },
                         child: const Text(
                           'Gross',
                           style: TextStyle(
@@ -121,7 +146,11 @@ class Body extends StatelessWidget {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            index = 2;
+                          });
+                        },
                         child: const Text(
                           'Overtime',
                           style: TextStyle(
@@ -136,78 +165,10 @@ class Body extends StatelessWidget {
               ),
 
               /// FORM FIELDS
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Form(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Basic Salary '),
-                      const SizedBox(height: 10.0),
-                      TextFormField(
-                        minLines: 1,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10.0),
+              IndexedStack(
+                index: index,
 
-                      Text('Transport (Optional) '),
-                      const SizedBox(height: 10.0),
-                      TextFormField(
-                        minLines: 1,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10.0),
-
-                      Text('Obertime (Optional) '),
-                      const SizedBox(height: 10.0),
-                      TextFormField(
-                        minLines: 1,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10.0),
-
-                      Text('Others (Optional) '),
-                      const SizedBox(height: 10.0),
-                      TextFormField(
-                        minLines: 1,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 30.0),
-                    ],
-                  ),
-                ),
+                children: [Net(), Gross(), Overtime()],
               ),
 
               /// CALCULATE BUTTON
