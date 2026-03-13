@@ -12,7 +12,8 @@ class _GrossState extends State<Gross> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+
       child: Form(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,6 +35,8 @@ class _GrossState extends State<Gross> {
               ),
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               decoration: InputDecoration(
+                label: Text('Enter Your Net Salary'),
+                prefixIcon: Icon(Icons.attach_money, color: Color(0xFF003049)),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

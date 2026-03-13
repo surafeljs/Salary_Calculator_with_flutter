@@ -12,7 +12,7 @@ class _NetState extends State<Net> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Form(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,10 @@ class _NetState extends State<Net> {
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF003049),
               ),
+
               decoration: InputDecoration(
+                hint: Text('Enter Your Basic Salary'),
+                prefixIcon: Icon(Icons.attach_money, color: Color(0xFF003049)),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -55,6 +58,9 @@ class _NetState extends State<Net> {
                 color: Color(0xFF003049),
               ),
               decoration: InputDecoration(
+                hint: Text('Enter Transport Allowance'),
+
+                prefixIcon: Icon(Icons.commute, color: Color(0xFF003049)),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -78,6 +84,10 @@ class _NetState extends State<Net> {
                 color: Color(0xFF003049),
               ),
               decoration: InputDecoration(
+                hint: Text('Enter Overtime'),
+
+                prefixIcon: Icon(Icons.access_time, color: Color(0xFF003049)),
+
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -87,7 +97,7 @@ class _NetState extends State<Net> {
             const SizedBox(height: 15),
 
             const Text(
-              'Others (Optional)',
+              'Others Allowance (Optional)',
               style: TextStyle(color: Color(0xFF003049), fontSize: 15),
             ),
             const SizedBox(height: 10),
@@ -101,6 +111,9 @@ class _NetState extends State<Net> {
                 color: Color(0xFF003049),
               ),
               decoration: InputDecoration(
+                hint: Text('Enter Others Allowance'),
+
+                prefixIcon: Icon(Icons.card_giftcard, color: Color(0xFF003049)),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

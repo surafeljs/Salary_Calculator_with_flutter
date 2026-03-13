@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:salary_calculator/gross.dart';
-import 'package:salary_calculator/overtime.dart';
+import 'package:salary_calculator/screen/gross.dart';
+
 import 'package:salary_calculator/screen/net.dart';
+import 'package:salary_calculator/screen/overtime.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -28,46 +29,71 @@ class _BodyState extends State<Body> {
                 child: Card.filled(
                   elevation: 6,
                   child: SizedBox(
-                    height: 218,
+                    height: 170,
                     child: Row(
                       children: [
                         Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              ListTile(
-                                leading: Icon(
-                                  Icons.crop_square,
-                                  color: Colors.green,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.crop_square,
+                                      color: Colors.green,
+                                    ),
+                                    Text("Net Salary"),
+                                  ],
                                 ),
-                                title: Text("Net Salary"),
-                                subtitle: Text("0.00"),
-                              ),
-                              ListTile(
-                                leading: Icon(
-                                  Icons.crop_square,
-                                  color: Colors.red,
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 30.0,
+                                  ),
+                                  child: Text("0.00"),
                                 ),
-                                title: Text("Tax"),
-                                subtitle: Text("0.00"),
-                              ),
-                              ListTile(
-                                leading: Icon(
-                                  Icons.crop_square,
-                                  color: Colors.orange,
+                                Row(
+                                  children: [
+                                    Icon(Icons.crop_square, color: Colors.red),
+                                    Text("Tax"),
+                                  ],
                                 ),
-                                title: Text("Pension"),
-                                subtitle: Text("0.00"),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 30.0,
+                                  ),
+                                  child: Text("0.00"),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.crop_square,
+                                      color: Colors.orange,
+                                    ),
+                                    Text("Pension"),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 30.0,
+                                  ),
+                                  child: Text("0.00"),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
+
                         const Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CircleAvatar(
-                                radius: 55,
+                                radius: 50,
                                 backgroundColor: Color.fromARGB(
                                   65,
                                   76,
@@ -75,7 +101,7 @@ class _BodyState extends State<Body> {
                                   79,
                                 ),
                               ),
-                              SizedBox(height: 10),
+                              SizedBox(height: 5),
                               Text(
                                 "Net Salary",
                                 style: TextStyle(
@@ -84,7 +110,6 @@ class _BodyState extends State<Body> {
                                   color: Color(0xFF003049),
                                 ),
                               ),
-                              Divider(endIndent: 40.0, indent: 40.0),
                               Text(
                                 "0.00",
                                 style: TextStyle(
@@ -167,7 +192,6 @@ class _BodyState extends State<Body> {
               /// FORM FIELDS
               IndexedStack(
                 index: index,
-
                 children: [Net(), Gross(), Overtime()],
               ),
 

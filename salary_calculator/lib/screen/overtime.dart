@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,11 +11,32 @@ class Overtime extends StatefulWidget {
 }
 
 class _OvertimeState extends State<Overtime> {
+  DateTime? date;
+  Timer? _timer;
+  @override
+  void initState() {
+    _timer = Timer.periodic(Duration(seconds: 1), (Timer tim) {
+      setState(() {
+        DateTime utcTime = DateTime.now().toUtc();
+        DateTime ethTime = utcTime.add(const Duration(hours: 3));
+        date = ethTime;
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,6 +57,12 @@ class _OvertimeState extends State<Overtime> {
                   color: Color(0xFF003049),
                 ),
                 decoration: InputDecoration(
+                  hint: Text('Enter Your Basic Salary'),
+
+                  prefixIcon: Icon(
+                    Icons.attach_money,
+                    color: Color(0xFF003049),
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
@@ -43,9 +72,37 @@ class _OvertimeState extends State<Overtime> {
               const SizedBox(height: 15),
               FittedBox(
                 child: const Text(
-                  'Overtime feom 6:00 Am to 10:00 Pm',
+                  'Overtime from 6:00 Am to 10:00 Pm',
                   style: TextStyle(color: Color(0xFF003049), fontSize: 15),
                 ),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  FittedBox(
+                    child: const Text(
+                      'Hours',
+                      style: TextStyle(
+                        color: Color(0xFF003049),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  FittedBox(
+                    child: const Text(
+                      'Minute',
+                      style: TextStyle(
+                        color: Color(0xFF003049),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
               ),
               const SizedBox(height: 10),
 
@@ -61,6 +118,8 @@ class _OvertimeState extends State<Overtime> {
                         color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
+                        hint: Text('${date?.hour}'),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -78,6 +137,8 @@ class _OvertimeState extends State<Overtime> {
                         color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
+                        hint: Text('${date?.minute}'),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -86,13 +147,42 @@ class _OvertimeState extends State<Overtime> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+
               const SizedBox(height: 15),
+
               FittedBox(
                 child: const Text(
-                  'Overtime feom 10:00 Pm  to 6:00 Am',
+                  'Overtime from 10:00 Pm  to 6:00 Am',
                   style: TextStyle(color: Color(0xFF003049), fontSize: 15),
                 ),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  FittedBox(
+                    child: const Text(
+                      'Hours',
+                      style: TextStyle(
+                        color: Color(0xFF003049),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  FittedBox(
+                    child: const Text(
+                      'Minute',
+                      style: TextStyle(
+                        color: Color(0xFF003049),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
               ),
               const SizedBox(height: 10),
 
@@ -108,6 +198,8 @@ class _OvertimeState extends State<Overtime> {
                         color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
+                        hint: Text('${date?.hour}'),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -125,6 +217,8 @@ class _OvertimeState extends State<Overtime> {
                         color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
+                        hint: Text('${date?.minute}'),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -133,7 +227,7 @@ class _OvertimeState extends State<Overtime> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+
               const SizedBox(height: 15),
               FittedBox(
                 child: const Text(
@@ -142,6 +236,34 @@ class _OvertimeState extends State<Overtime> {
                 ),
               ),
               const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  FittedBox(
+                    child: const Text(
+                      'Hours',
+                      style: TextStyle(
+                        color: Color(0xFF003049),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  FittedBox(
+                    child: const Text(
+                      'Minute',
+                      style: TextStyle(
+                        color: Color(0xFF003049),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
+              const SizedBox(height: 10),
 
               Row(
                 children: [
@@ -155,6 +277,8 @@ class _OvertimeState extends State<Overtime> {
                         color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
+                        hint: Text('${date?.hour}'),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -172,6 +296,8 @@ class _OvertimeState extends State<Overtime> {
                         color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
+                        hint: Text('${date?.minute}'),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -180,13 +306,41 @@ class _OvertimeState extends State<Overtime> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+
               const SizedBox(height: 15),
               FittedBox(
                 child: const Text(
                   'Overtime on a holiday',
                   style: TextStyle(color: Color(0xFF003049), fontSize: 15),
                 ),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  FittedBox(
+                    child: const Text(
+                      'Hours',
+                      style: TextStyle(
+                        color: Color(0xFF003049),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  FittedBox(
+                    child: const Text(
+                      'Minute',
+                      style: TextStyle(
+                        color: Color(0xFF003049),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
               ),
               const SizedBox(height: 10),
 
@@ -202,6 +356,8 @@ class _OvertimeState extends State<Overtime> {
                         color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
+                        hint: Text('${date?.hour}'),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -219,6 +375,8 @@ class _OvertimeState extends State<Overtime> {
                         color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
+                        hint: Text('${date?.minute}'),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),

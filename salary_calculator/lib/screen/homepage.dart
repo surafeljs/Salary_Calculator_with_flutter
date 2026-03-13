@@ -12,7 +12,26 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Color(0XFF1B3C53),
+
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: Icon(Icons.dark_mode, color: Colors.white),
+          ),
+        ],
+
+        title: Text(
+          "Salary Calculator",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2,
+          ),
+        ),
+      ),
       resizeToAvoidBottomInset: true,
       body: Body(),
     );
