@@ -18,9 +18,11 @@ class _GrossState extends State<Gross> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Basic Salary',
-              style: TextStyle(fontSize: 15, color: Color(0xFF003049)),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
             ),
 
             const SizedBox(height: 10),
@@ -35,7 +37,10 @@ class _GrossState extends State<Gross> {
               ),
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               decoration: InputDecoration(
-                label: Text('Enter Your Net Salary'),
+                label: Text(
+                  'Enter Your Net Salary',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
                 prefixIcon: Icon(Icons.attach_money, color: Color(0xFF003049)),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),

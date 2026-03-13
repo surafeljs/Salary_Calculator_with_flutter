@@ -17,9 +17,11 @@ class _NetState extends State<Net> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Basic Salary',
-              style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
             ),
             const SizedBox(height: 10),
 
@@ -43,9 +45,11 @@ class _NetState extends State<Net> {
 
             const SizedBox(height: 15),
 
-            const Text(
+            Text(
               'Transport (Optional)',
-              style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
             ),
             const SizedBox(height: 10),
 
@@ -69,9 +73,11 @@ class _NetState extends State<Net> {
 
             const SizedBox(height: 15),
 
-            const Text(
+            Text(
               'Overtime (Optional)',
-              style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
             ),
             const SizedBox(height: 10),
 
@@ -96,9 +102,11 @@ class _NetState extends State<Net> {
 
             const SizedBox(height: 15),
 
-            const Text(
+            Text(
               'Others Allowance (Optional)',
-              style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(fontSize: 15),
             ),
             const SizedBox(height: 10),
 

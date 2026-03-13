@@ -9,6 +9,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  bool theme = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,16 @@ class _HomepageState extends State<Homepage> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: Icon(Icons.dark_mode, color: Colors.white),
+            child: IconButton(
+              onPressed: () {
+                setState(() {
+                  theme = !theme;
+                });
+              },
+              icon: theme
+                  ? Icon(Icons.light_mode, color: Colors.white)
+                  : Icon(Icons.dark_mode, color: Colors.black),
+            ),
           ),
         ],
 

@@ -41,9 +41,11 @@ class _OvertimeState extends State<Overtime> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Basic Salary',
-                style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
               ),
 
               const SizedBox(height: 10),
@@ -71,9 +73,11 @@ class _OvertimeState extends State<Overtime> {
 
               const SizedBox(height: 15),
               FittedBox(
-                child: const Text(
+                child: Text(
                   'Overtime from 6:00 Am to 10:00 Pm',
-                  style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
                 ),
               ),
               const SizedBox(height: 10),
@@ -81,22 +85,20 @@ class _OvertimeState extends State<Overtime> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FittedBox(
-                    child: const Text(
+                    child: Text(
                       'Hours',
-                      style: TextStyle(
-                        color: Color(0xFF003049),
-                        fontSize: 15,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   const SizedBox(height: 10),
                   FittedBox(
-                    child: const Text(
+                    child: Text(
                       'Minute',
-                      style: TextStyle(
-                        color: Color(0xFF003049),
-                        fontSize: 15,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -151,9 +153,11 @@ class _OvertimeState extends State<Overtime> {
               const SizedBox(height: 15),
 
               FittedBox(
-                child: const Text(
+                child: Text(
                   'Overtime from 10:00 Pm  to 6:00 Am',
-                  style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
                 ),
               ),
               const SizedBox(height: 10),
@@ -161,22 +165,20 @@ class _OvertimeState extends State<Overtime> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FittedBox(
-                    child: const Text(
+                    child: Text(
                       'Hours',
-                      style: TextStyle(
-                        color: Color(0xFF003049),
-                        fontSize: 15,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   const SizedBox(height: 10),
                   FittedBox(
-                    child: const Text(
+                    child: Text(
                       'Minute',
-                      style: TextStyle(
-                        color: Color(0xFF003049),
-                        fontSize: 15,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -230,9 +232,11 @@ class _OvertimeState extends State<Overtime> {
 
               const SizedBox(height: 15),
               FittedBox(
-                child: const Text(
-                  'Overtime on rest day',
-                  style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+                child: Text(
+                  'Overtime On Rest Day',
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
                 ),
               ),
               const SizedBox(height: 10),
@@ -240,22 +244,20 @@ class _OvertimeState extends State<Overtime> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FittedBox(
-                    child: const Text(
+                    child: Text(
                       'Hours',
-                      style: TextStyle(
-                        color: Color(0xFF003049),
-                        fontSize: 15,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   const SizedBox(height: 10),
                   FittedBox(
-                    child: const Text(
+                    child: Text(
                       'Minute',
-                      style: TextStyle(
-                        color: Color(0xFF003049),
-                        fontSize: 15,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -309,9 +311,11 @@ class _OvertimeState extends State<Overtime> {
 
               const SizedBox(height: 15),
               FittedBox(
-                child: const Text(
-                  'Overtime on a holiday',
-                  style: TextStyle(color: Color(0xFF003049), fontSize: 15),
+                child: Text(
+                  'Overtime On a Holiday',
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyMedium?.copyWith(fontSize: 15.0),
                 ),
               ),
               const SizedBox(height: 10),
@@ -319,22 +323,20 @@ class _OvertimeState extends State<Overtime> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FittedBox(
-                    child: const Text(
+                    child: Text(
                       'Hours',
-                      style: TextStyle(
-                        color: Color(0xFF003049),
-                        fontSize: 15,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   const SizedBox(height: 10),
                   FittedBox(
-                    child: const Text(
+                    child: Text(
                       'Minute',
-                      style: TextStyle(
-                        color: Color(0xFF003049),
-                        fontSize: 15,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -350,10 +352,9 @@ class _OvertimeState extends State<Overtime> {
                     child: TextFormField(
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      style: const TextStyle(
-                        fontSize: 18,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF003049),
                       ),
                       decoration: InputDecoration(
                         hint: Text('${date?.hour}'),
@@ -385,7 +386,7 @@ class _OvertimeState extends State<Overtime> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 50),
             ],
           ),
         ),

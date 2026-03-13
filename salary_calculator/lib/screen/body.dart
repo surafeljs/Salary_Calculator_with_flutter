@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:salary_calculator/screen/gross.dart';
-
 import 'package:salary_calculator/screen/net.dart';
 import 'package:salary_calculator/screen/overtime.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -88,35 +88,70 @@ class _BodyState extends State<Body> {
                           ),
                         ),
 
-                        const Expanded(
+                        Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              CircleAvatar(
-                                radius: 50,
-                                backgroundColor: Color.fromARGB(
-                                  65,
-                                  76,
-                                  175,
-                                  79,
+                              SizedBox(
+                                height: 100,
+                                child: PieChart(
+                                  PieChartData(
+                                    sectionsSpace: 2,
+                                    centerSpaceRadius: 20,
+                                    sections: [
+                                      PieChartSectionData(
+                                        value: 1500,
+                                        color: Colors.green,
+                                        title: 'Net Salary',
+                                        radius: 40,
+                                        titleStyle: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      PieChartSectionData(
+                                        value: 800,
+                                        color: Colors.orange,
+                                        title: 'Tax',
+                                        radius: 40,
+                                        titleStyle: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      PieChartSectionData(
+                                        value: 200,
+                                        color: Colors.red,
+                                        title: 'Pension',
+                                        radius: 40,
+                                        titleStyle: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 8),
                               Text(
                                 "Net Salary",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF003049),
-                                ),
+                                style: Theme.of(context).textTheme.bodyMedium
+                                    ?.copyWith(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                               ),
                               Text(
                                 "0.00",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF003049),
-                                ),
+                                style: Theme.of(context).textTheme.bodyMedium
+                                    ?.copyWith(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                               ),
                             ],
                           ),
@@ -148,12 +183,11 @@ class _BodyState extends State<Body> {
                             index = 0;
                           });
                         },
-                        child: const Text(
+                        child: Text(
                           'Net Salary',
-                          style: TextStyle(
-                            color: Color(0xFF003049),
-                            fontSize: 18,
-                          ),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyMedium?.copyWith(fontSize: 18),
                         ),
                       ),
                       TextButton(
@@ -162,12 +196,11 @@ class _BodyState extends State<Body> {
                             index = 1;
                           });
                         },
-                        child: const Text(
+                        child: Text(
                           'Gross',
-                          style: TextStyle(
-                            color: Color(0xFF003049),
-                            fontSize: 18,
-                          ),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyMedium?.copyWith(fontSize: 18),
                         ),
                       ),
                       TextButton(
@@ -176,12 +209,11 @@ class _BodyState extends State<Body> {
                             index = 2;
                           });
                         },
-                        child: const Text(
+                        child: Text(
                           'Overtime',
-                          style: TextStyle(
-                            color: Color(0xFF003049),
-                            fontSize: 18,
-                          ),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyMedium?.copyWith(fontSize: 18),
                         ),
                       ),
                     ],
@@ -203,11 +235,11 @@ class _BodyState extends State<Body> {
                 ),
                 child: SizedBox(
                   width: double.infinity,
-                  height: 60,
+                  height: 55,
                   child: OutlinedButton(
                     style: ButtonStyle(
                       overlayColor: WidgetStatePropertyAll(
-                        const Color.fromARGB(56, 255, 86, 34),
+                        const Color.fromARGB(60, 255, 255, 255),
                       ),
                       backgroundColor: WidgetStatePropertyAll(
                         Color.fromARGB(41, 68, 68, 78),
